@@ -1,0 +1,17 @@
+@import-normalize;
+/* bring in normalize.css styles */
+
+@import-normalize;
+/* bring in normalize.css styles */
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
