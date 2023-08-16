@@ -1,7 +1,7 @@
 import { Button } from 'components/ContactForm/ContactForm.styled'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteContact } from 'store/contacts/contactsSlice'
 import { getContacts } from 'store/contacts/selectors'
+import { deleteContactsThunk } from 'store/contacts/thunk'
 import { getFilter } from 'store/filter/selectors'
 import { List } from './ContactList.styled'
 
@@ -22,7 +22,7 @@ export const ContactList = () => {
   const filteredContacts = getFilteredContacts()
   
   const onDeleteBtn = id => {
-    dispatch(deleteContact(id))
+    dispatch(deleteContactsThunk(id))
   };
   
   return (
@@ -32,7 +32,7 @@ export const ContactList = () => {
           <li key={contact.id}>
             <div>
             <p>☎ {contact.name}:</p>
-            <p>{contact.number}</p>
+            <p>{contact.phone}</p>
             </div>
             <Button onClick={() => onDeleteBtn(contact.id)}>Delete</Button>
           </li>

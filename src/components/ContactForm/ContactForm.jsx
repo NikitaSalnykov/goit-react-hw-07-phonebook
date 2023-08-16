@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'store/contacts/selectors';
-import { addContact } from 'store/contacts/contactsSlice';
+import { createContactsThunk } from 'store/contacts/thunk';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -36,7 +36,7 @@ export const ContactForm = () => {
       return;
     }
     
-    dispatch(addContact(name, number))
+    dispatch(createContactsThunk({name, phone: number}))
     Notiflix.Notify.success('Contact added successfully');
   };
 
