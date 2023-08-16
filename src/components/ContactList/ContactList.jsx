@@ -1,9 +1,10 @@
-import { Button } from 'components/ContactForm/ContactForm.styled'
 import { useDispatch, useSelector } from 'react-redux'
 import { getContacts } from 'store/contacts/selectors'
 import { deleteContactsThunk } from 'store/contacts/thunk'
 import { getFilter } from 'store/filter/selectors'
 import { List } from './ContactList.styled'
+import { TiDelete } from 'react-icons/ti';
+import { FaPhoneAlt } from 'react-icons/fa';
 
 export const ContactList = () => {
   
@@ -31,10 +32,11 @@ export const ContactList = () => {
         return (
           <li key={contact.id}>
             <div>
-            <p>☎ {contact.name}:</p>
+              <FaPhoneAlt size='18'/>
+            <p> {contact.name}:</p>
             <p>{contact.phone}</p>
             </div>
-            <Button onClick={() => onDeleteBtn(contact.id)}>Delete</Button>
+            <button onClick={() => onDeleteBtn(contact.id)}><TiDelete size='24'/></button>
           </li>
         )
 
